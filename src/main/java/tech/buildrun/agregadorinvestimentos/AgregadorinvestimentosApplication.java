@@ -9,6 +9,5 @@ public class AgregadorinvestimentosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AgregadorinvestimentosApplication.class, args);
 	}
-	
 
 }

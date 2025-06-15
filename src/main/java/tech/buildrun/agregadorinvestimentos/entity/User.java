@@ -9,14 +9,13 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "tb_users")
-
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID userId;
 
-    @Column(name = "Username")
+    @Column(name = "username")
     private String username;
 
     @Column(name = "email")
@@ -26,22 +25,21 @@ public class User {
     private String password;
 
     @CreationTimestamp
-    private Instant creationTimeStamp;
+    private Instant creationTimestamp;
 
     @UpdateTimestamp
-    private Instant updateTimeStamp;
-
-
+    private Instant updateTimestamp;
 
     public User() {
     }
-    public User(UUID userId, String username, String email, String password, Instant creationTimeStamp, Instant updateTimeStamp) {
+
+    public User(UUID userId, String username, String email, String password, Instant creationTimestamp, Instant updateTimestamp) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.creationTimeStamp = creationTimeStamp;
-        this.updateTimeStamp = updateTimeStamp;
+        this.creationTimestamp = creationTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
     public UUID getUserId() {
@@ -76,19 +74,19 @@ public class User {
         this.password = password;
     }
 
-    public Instant getCreationTimeStamp() {
-        return creationTimeStamp;
+    public Instant getCreationTimestamp() {
+        return creationTimestamp;
     }
 
-    public void setCreationTimeStamp(Instant creationTimeStamp) {
-        this.creationTimeStamp = creationTimeStamp;
+    public void setCreationTimestamp(Instant creationTimestamp) {
+        this.creationTimestamp = creationTimestamp;
     }
 
-    public Instant getUpdateTimeStamp() {
-        return updateTimeStamp;
+    public Instant getUpdateTimestamp() {
+        return updateTimestamp;
     }
 
-    public void setUpdateTimeStamp(Instant updateTimeStamp) {
-        this.updateTimeStamp = updateTimeStamp;
+    public void setUpdateTimestamp(Instant updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
     }
 }
