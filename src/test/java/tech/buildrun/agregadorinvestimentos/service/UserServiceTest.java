@@ -1,12 +1,15 @@
-package tech.buildrun.agregadorinvestimentos.controller;
+package tech.buildrun.agregadorinvestimentos.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import tech.buildrun.agregadorinvestimentos.controller.CreateUserDto;
 import tech.buildrun.agregadorinvestimentos.entity.User;
 import tech.buildrun.agregadorinvestimentos.repository.UserRepository;
 import tech.buildrun.agregadorinvestimentos.service.UserService;
@@ -29,11 +32,15 @@ class UserControllerTest {
     @InjectMocks
     private UserService userService;
 
+    @Captor
+    private ArgumentCaptor<User> userArgumentCaptor;
+
     @Nested
     class createUser{
+
         @Test
         @DisplayName("Should create a user succes")
-        
+
         void should() {
 
             //Arange
@@ -45,15 +52,21 @@ class UserControllerTest {
                     Instant.now(),
                     null
             );
-            doThrow(new RuntimeException()).when(userRepository).save(any());
+            doThrow(new RuntimeException()).when(userRepository).save(userArgumentCaptor.capture());
             var input = new CreateUserDto(
                     "username",
                     "email@email.com",
                     "123"
             );
+
+            var output = userService.createUser(input);
             //Act
-            assertThrows(RuntimeException.class, () -> userService.createUser(input));
+            assertNull(output);
+            var userCapture = userArgumentCaptor.getValue();
+            assertEquals(input.username(), userCapture.getUsername());
+            assertEquals(input.email(), userCapture.getEmail());
+            assertEquals(input.password(), userCapture.getPassword());
         }
     }
 
-}
+}//

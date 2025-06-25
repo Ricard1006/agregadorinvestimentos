@@ -40,7 +40,7 @@ public class UserController {
     public ResponseEntity<List<User>> listUsers() {
         var users = userService.listUsers();
 
-        return ResponseEntity.ok(users); 
+        return ResponseEntity.ok(users);
     }
 
     @PutMapping("/{userId}")
