@@ -1,4 +1,4 @@
-package tech.buildrun.agregadorinvestimentos.service;
+package ricardo.products.agregadorinvestimentos.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -9,10 +9,9 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import tech.buildrun.agregadorinvestimentos.controller.CreateUserDto;
-import tech.buildrun.agregadorinvestimentos.entity.User;
-import tech.buildrun.agregadorinvestimentos.repository.UserRepository;
-import tech.buildrun.agregadorinvestimentos.service.UserService;
+import ricardo.products.agregadorinvestimentos.controller.CreateUserDto;
+import ricardo.products.agregadorinvestimentos.entity.User;
+import ricardo.products.agregadorinvestimentos.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.UUID;

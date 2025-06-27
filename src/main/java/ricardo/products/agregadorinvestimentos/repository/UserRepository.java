@@ -1,8 +1,8 @@
-package tech.buildrun.agregadorinvestimentos.repository;
+package ricardo.products.agregadorinvestimentos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tech.buildrun.agregadorinvestimentos.entity.User;
+import ricardo.products.agregadorinvestimentos.entity.User;
 
 import java.util.UUID;
 

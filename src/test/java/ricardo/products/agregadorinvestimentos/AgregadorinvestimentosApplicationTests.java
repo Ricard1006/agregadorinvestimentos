@@ -1,4 +1,4 @@
-package tech.buildrun.agregadorinvestimentos;
+package ricardo.products.agregadorinvestimentos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

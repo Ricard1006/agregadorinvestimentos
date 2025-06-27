@@ -1,10 +1,10 @@
-package tech.buildrun.agregadorinvestimentos.service;
+package ricardo.products.agregadorinvestimentos.service;
 
 import org.springframework.stereotype.Service;
-import tech.buildrun.agregadorinvestimentos.controller.CreateUserDto;
-import tech.buildrun.agregadorinvestimentos.controller.UpdateUserDto;
-import tech.buildrun.agregadorinvestimentos.entity.User;
-import tech.buildrun.agregadorinvestimentos.repository.UserRepository;
+import ricardo.products.agregadorinvestimentos.controller.CreateUserDto;
+import ricardo.products.agregadorinvestimentos.controller.UpdateUserDto;
+import ricardo.products.agregadorinvestimentos.entity.User;
+import ricardo.products.agregadorinvestimentos.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.List;

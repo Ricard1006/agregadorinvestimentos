@@ -1,4 +1,4 @@
-package tech.buildrun.agregadorinvestimentos;
+package ricardo.products.agregadorinvestimentos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

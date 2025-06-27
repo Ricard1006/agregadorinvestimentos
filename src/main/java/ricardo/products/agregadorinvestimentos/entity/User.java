@@ -1,4 +1,4 @@
-package tech.buildrun.agregadorinvestimentos.entity;
+package ricardo.products.agregadorinvestimentos.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;

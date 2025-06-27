@@ -1,9 +1,9 @@
-package tech.buildrun.agregadorinvestimentos.controller;
+package ricardo.products.agregadorinvestimentos.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tech.buildrun.agregadorinvestimentos.entity.User;
-import tech.buildrun.agregadorinvestimentos.service.UserService;
+import ricardo.products.agregadorinvestimentos.entity.User;
+import ricardo.products.agregadorinvestimentos.service.UserService;
 
 import java.net.URI;
 import java.util.List;
