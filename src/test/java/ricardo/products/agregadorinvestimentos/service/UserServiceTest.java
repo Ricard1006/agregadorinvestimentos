@@ -18,12 +18,10 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserControllerTest {
-
 
     @Mock
     private UserRepository userRepository;
@@ -35,37 +33,40 @@ class UserControllerTest {
     private ArgumentCaptor<User> userArgumentCaptor;
 
     @Nested
-    class createUser{
+    class CreateUser {
 
         @Test
-        @DisplayName("Should create a user succes")
-
-        void should() {
-
-            //Arange
-            var user = new User(
-                    UUID.randomUUID(),
-                    "username",
-                    "email@email.com",
-                    "password",
-                    Instant.now(),
-                    null
-            );
-            doThrow(new RuntimeException()).when(userRepository).save(userArgumentCaptor.capture());
+        @DisplayName("Deve criar um usuário com sucesso")
+        void shouldCreateUserSuccessfully() {
+            // Arrange
             var input = new CreateUserDto(
                     "username",
                     "email@email.com",
                     "123"
             );
 
+            // Simula o retorno esperado do repositório
+            var savedUser = new User(
+                    UUID.randomUUID(),
+                    input.username(),
+                    input.email(),
+                    input.password(),
+                    Instant.now(),
+                    null
+            );
+
+            when(userRepository.save(any(User.class))).thenReturn(savedUser);
+
+            // Act
             var output = userService.createUser(input);
-            //Act
-            assertNull(output);
-            var userCapture = userArgumentCaptor.getValue();
-            assertEquals(input.username(), userCapture.getUsername());
-            assertEquals(input.email(), userCapture.getEmail());
-            assertEquals(input.password(), userCapture.getPassword());
+
+            // Assert
+            assertNotNull(output);
+            verify(userRepository).save(userArgumentCaptor.capture());
+            var capturedUser = userArgumentCaptor.getValue();
+            assertEquals(input.username(), capturedUser.getUsername());
+            assertEquals(input.email(), capturedUser.getEmail());
+            assertEquals(input.password(), capturedUser.getPassword());
         }
     }
-
-}//
+}
